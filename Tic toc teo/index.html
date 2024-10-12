@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Toc Teo</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        h2{
+            text-align: center;
+        }
+        .box{
+            height: 120px ;
+           width: 120px;
+           background-color: aquamarine;
+           border-radius: 10px;
+           font-size: 50px;
+           color: brown;
+        }    
+        .main{
+            align-items: center;
+            display: grid;
+            grid-template-columns: 150px 150px 150px;
+            grid-template-rows: 150px 150px 150px;
+        }
+        #output{
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: x-large;
+            color:  #04AA6D;
+            font-weight: 800;
+            top: 50%;
+            left: 80%;
+        }
+        #reset{
+            margin-left:60%;
+            margin-top: 5%;
+            height: 35px;
+            width: 130px;
+            border-radius: 10px;
+            background-color:#f44336;
+            cursor: pointer;
+            color: white;
+            font-weight: 600;
+            border: none;
+
+        }
+        #reset:hover{
+            background-color: white;
+            color: black;
+            border:2px solid #f44336;
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Tic Toc Teo </h2>
+        <div id="output"></div>
+        <div class="main">
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+        </div>
+        <button id="reset">Reset Game</button>
+    </main>
+    <script>
+            const button=document.querySelectorAll(".box")
+            const output=document.getElementById("output")
+            const reset=document.getElementById("reset")
+            let val=true;
+            const winpattern=[
+                 [0,1,2],
+                 [3,4,5],
+                 [6,7,8],
+                 [0,3,6],
+                 [1,4,7],
+                 [2,5,8],
+                 [0,4,8],
+                 [2,4,6]
+            ]
+
+            function checkwinner() {
+        for(let pattern of winpattern){
+            let pos1=button[pattern[0]].innerHTML;
+            let pos2=button[pattern[1]].innerHTML;
+            let pos3=button[pattern[2]].innerHTML;
+            console.log(pos1,pos2,pos3);
+            if (pos1!="" && pos2!="" && pos3!="") {
+                if (pos1===pos2 && pos2===pos3) {
+                    output.innerHTML=`Winner ${pos1}`
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2500);
+                }
+            }
+        }
+            
+       }
+            button.forEach((btn)=>
+            {
+                btn.addEventListener("click",()=>{
+                       console.log('btn clicked');
+                       if (val) {
+                          btn.innerHTML='O'
+                          val=false
+                       }
+                       else
+                       {
+                        btn.innerHTML='X'
+                        val=true;
+                       }
+                       btn.disabled=true; 
+                    checkwinner()
+                })       
+            }
+        )
+        reset.addEventListener("click",()=>{
+            location.reload(true);
+        })
+      
+    </script>
+</body>
+</html>
