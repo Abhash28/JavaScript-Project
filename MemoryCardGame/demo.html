@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Click Example</title>
+    <style>
+        .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    margin: 0 auto;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.box:hover {
+    background-color: skyblue;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 12 boxes with different content -->
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+        <div class="box">Box 6</div>
+        <div class="box">Box 7</div>
+        <div class="box">Box 8</div>
+        <div class="box">Box 9</div>
+        <div class="box">Box 10</div>
+        <div class="box">Box 11</div>
+        <div class="box">Box 12</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    // Select all the boxes
+    const boxes = document.querySelectorAll('.box');
+
+    // Initialize variables to store the clicked values
+    let val1 = null;
+    let val2 = null;
+
+    // Add click event listener to each box
+    boxes.forEach(box => {
+        box.addEventListener('click', () => {
+            // If val1 is not set, store the first clicked box's innerHTML in val1
+            if (val1 === null) {
+                val1 = box.innerHTML;
+                console.log(`val1 is set to: ${val1}`);
+            } else if (val2 === null) { // If val2 is not set, store the second clicked box's innerHTML in val2
+                val2 = box.innerHTML;
+                console.log(`val2 is set to: ${val2}`);
+            } else { // If both values are already set, reset them
+                console.log(`Both values are set. Resetting...`);
+                val1 = box.innerHTML;
+                val2 = null;
+                console.log(`val1 is set to: ${val1}`);
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
