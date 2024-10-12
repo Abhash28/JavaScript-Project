@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+       
+        body {
+            background-color: rgb(1, 1, 30);
+            color: white;
+            font-family: Poppins;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18, 18, 62);
+            position: sticky;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            list-style-type: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0px 20px;
+            cursor: pointer;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color:gray;
+        }
+
+        nav ul li a:hover {
+            color:  rgb(231, 180, 12);
+            transition: all 0.2s ease-in-out;
+            font-weight: 600;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 70px 0;
+
+        }
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 2.5rem;
+            margin: 30px 0;
+        }
+
+        .purple {
+            color: rgb(170, 107, 228);
+        }
+
+        #content {
+            position: relative;
+            max-width: 700px;
+            margin-left: 150px;
+            margin-top: 200px;
+        }
+
+        h2 {
+            font-size: 50px;
+        }
+
+        p {
+            color: rgb(174, 173, 173);
+            font-size: 20px;
+            padding: 10px 0px;
+            margin-bottom: 20px;
+        }
+
+        .chat {
+            background-color: #01011E;
+            color: white;
+            border: none;
+            font-size: 15px;
+            font-weight: 700;
+            height: 40px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .chat:hover {
+            color: #01011E;
+            background-color: white;
+            border-radius: 5px;
+            transition: all 1s ease-in-out;
+        }
+
+        .join {
+            padding: 0px 10px;
+            font-size: 15px;
+            font-weight: 700;
+            height: 40px;
+            width: 100px;
+            margin-right: 25px;
+            cursor: pointer;
+        }
+
+        .join:hover {
+            border: 2px solid white;
+            background-color: #01011E;
+            border-radius: 5px;
+            color: white;
+            transition: all 1s ease-in-out;
+        }
+        #dark{
+            border: 2px solid white;
+            position: absolute;
+            border-radius: 5px;
+            padding: 2px;
+            cursor: pointer;
+            top: 90%;
+            left: 50%;
+            width: 30px;
+            text-align: center;
+        }
+        #element{
+            color: rgb(231, 180, 12);
+        }
+        .white {
+            background-color: white;
+            color:black;   
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav id="nav">
+            <div class="left">Portfolio</div>
+            <div class="right" >
+                <ul >
+                    <li><a class="main" href="/">Home</a></li>
+                    <li><a href="/" id="main">About</a></li>
+                    <li><a class="main" href="/">Services</a></li>
+                    <li><a class="main" href="/">Projects</a></li>
+                    <li><a class="main" href="/">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="content">
+        <h2>I am <span id="element">DropXOut</span></h2>
+        
+        <p>Let's break the Matrix</p>
+        <button class="join">Join Us</button>
+        <button class="chat"> Let's Chat </button>
+    </div>
+    <div id="dark">
+        <i class="far fa-sun sun"></i>
+        
+    </div>
+    <!-- Load library from the CDN -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- Setup and start animation! -->
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['DropX Out', ' Web Developer',"Video Editer","&amp; Graphic Designer."],
+      typeSpeed: 50,
+    });
+  </script>
+     <script>
+        var body=document.body;
+        var dark=document.getElementById('dark')
+        var nav=document.getElementById('nav')
+        var main=document.getElementsByClassName('main')
+        dark.addEventListener('click',()=>{
+            nav.classList.toggle('white')
+            body.classList.toggle("white")
+            main.classList.toggle('white')           
+        })
+     </script>
+</body>
+
+</html>
