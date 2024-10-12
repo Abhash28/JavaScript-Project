@@ -1,0 +1,9 @@
+@media (max-width:576px) {
+    header{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .dumball{
+        margin-top: 20px;
+    }
+}
